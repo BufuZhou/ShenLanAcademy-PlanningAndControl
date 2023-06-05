@@ -1,0 +1,11 @@
+{
+    "cmake.sourceDirectory": "/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/carla_ros_bridge_ros/build/catkin_tools_prebuild",
+    "search.exclude": {        
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "build/": true,
+        "temp/": true,
+        "library/": true,
+        "**/*.anim": true
+    }
+}

@@ -1,0 +1,8 @@
+prefix=/home/lifanjie/Desktop/Project_1_PID_ROS1/install
+
+Name: ros_compatibility
+Description: Description of ros_compatibility
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: rospy

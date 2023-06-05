@@ -1,0 +1,2 @@
+set(carla_waypoint_types_MESSAGE_FILES "/home/lifanjie/Desktop/Project_1_PID_ROS1/src/carla_ros_bridge_ros1/src/carla_waypoint_types/msg/CarlaWaypoint.msg")
+set(carla_waypoint_types_SERVICE_FILES "/home/lifanjie/Desktop/Project_1_PID_ROS1/src/carla_ros_bridge_ros1/src/carla_waypoint_types/srv/GetWaypoint.srv;/home/lifanjie/Desktop/Project_1_PID_ROS1/src/carla_ros_bridge_ros1/src/carla_waypoint_types/srv/GetActorWaypoint.srv")

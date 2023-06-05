@@ -1,0 +1,8 @@
+prefix=/home/lifanjie/Desktop/Project_1_PID_ROS1/devel
+
+Name: vehicle_control
+Description: Description of vehicle_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -lserial_communication
+Requires: carla_msgs geometry_msgs nav_msgs roscpp rospy sensor_msgs std_msgs tf

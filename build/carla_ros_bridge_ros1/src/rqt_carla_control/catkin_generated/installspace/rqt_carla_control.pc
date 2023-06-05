@@ -1,0 +1,8 @@
+prefix=/home/lifanjie/Desktop/Project_1_PID_ROS1/install
+
+Name: rqt_carla_control
+Description: Description of rqt_carla_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: rospy rqt_gui_py
