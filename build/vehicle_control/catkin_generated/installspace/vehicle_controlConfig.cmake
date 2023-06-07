@@ -67,14 +67,14 @@ set(vehicle_control_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(vehicle_control_SOURCE_PREFIX /home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control)
-  set(vehicle_control_DEVEL_PREFIX /home/lifanjie/Desktop/Project_1_PID_ROS1/devel)
+  set(vehicle_control_SOURCE_PREFIX /home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control)
+  set(vehicle_control_DEVEL_PREFIX /home/lifanjie/ShenLanAcademy-PlanningAndControl/devel)
   set(vehicle_control_INSTALL_PREFIX "")
   set(vehicle_control_PREFIX ${vehicle_control_DEVEL_PREFIX})
 else()
   set(vehicle_control_SOURCE_PREFIX "")
   set(vehicle_control_DEVEL_PREFIX "")
-  set(vehicle_control_INSTALL_PREFIX /home/lifanjie/Desktop/Project_1_PID_ROS1/install)
+  set(vehicle_control_INSTALL_PREFIX /home/lifanjie/ShenLanAcademy-PlanningAndControl/install)
   set(vehicle_control_PREFIX ${vehicle_control_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/lifanjie/Desktop/Project_1_PID_ROS1/install/lib;/opt/ros/melodic/lib)
+    foreach(path /home/lifanjie/ShenLanAcademy-PlanningAndControl/install/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

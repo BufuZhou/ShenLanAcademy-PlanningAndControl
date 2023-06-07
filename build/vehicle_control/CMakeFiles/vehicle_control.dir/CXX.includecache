@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/include/common.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/include/common.h
 fstream
 -
 iostream
@@ -20,15 +20,15 @@ nav_msgs/Odometry.h
 std_msgs/Header.h
 -
 reference_line.h
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/include/reference_line.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/include/reference_line.h
 ros/ros.h
 -
 tf/tf.h
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/include/tf/tf.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/include/tf/tf.h
 
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/include/pid_controller.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/include/pid_controller.h
 
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/include/reference_line.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/include/reference_line.h
 vector
 -
 iostream
@@ -36,19 +36,11 @@ iostream
 math.h
 -
 
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/src/pid_controller.cpp
-pid_controller.h
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/src/pid_controller.h
-
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/src/reference_line.cpp
-reference_line.h
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/src/reference_line.h
-
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/src/vehicle_control.cpp
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/vehicle_control.cpp
 common.h
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/src/common.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/common.h
 pid_controller.h
-/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/src/pid_controller.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/pid_controller.h
 fstream
 -
 algorithm

@@ -1,4 +1,4 @@
-prefix=/home/lifanjie/Desktop/Project_1_PID_ROS1/devel
+prefix=/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel
 
 Name: vehicle_control
 Description: Description of vehicle_control

@@ -7,10 +7,10 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/lifanjie/Desktop/Project_1_PID_ROS1/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/lifanjie/Desktop/Project_1_PID_ROS1/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/lifanjie/Desktop/Project_1_PID_ROS1/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/lifanjie/Desktop/Project_1_PID_ROS1/build'
-export PYTHONPATH="/home/lifanjie/Desktop/Project_1_PID_ROS1/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES='/home/lifanjie/Desktop/Project_1_PID_ROS1/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/lifanjie/Desktop/Project_1_PID_ROS1/src:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD='/home/lifanjie/ShenLanAcademy-PlanningAndControl/build'
+export PYTHONPATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/python2.7/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES='/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/common-lisp'
+export ROS_PACKAGE_PATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/src:$ROS_PACKAGE_PATH"

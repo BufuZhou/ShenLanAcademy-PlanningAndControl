@@ -179,25 +179,25 @@ int main(int argc, char** argv)
     target_point_ = QueryNearestPointByPosition(vehicle_state_.x, vehicle_state_.y);
 
     cout << "target_v: " << target_point_.v << endl;
-
+    // target_point_.v = 0.0;
     double v_err = target_point_.v - vehicle_state_.v;               // 速度误差
     double yaw_err = vehicle_state_.heading - target_point_.heading; // 横摆角误差
     double lat_err = target_point_.y - vehicle_state_.y;             // 横向误差
 
-    if (yaw_err > M_PI / 6) 
-    {
-      yaw_err = M_PI / 6;
-    }
-    else if (yaw_err < -M_PI / 6)
-    {
-      yaw_err = -M_PI / 6;
-    }
+    // if (yaw_err > M_PI / 6) 
+    // {
+    //   yaw_err = M_PI / 6;
+    // }
+    // else if (yaw_err < -M_PI / 6)
+    // {
+    //   yaw_err = -M_PI / 6;
+    // }
     
     // 计算油门/制动踏板开度
     throttle_or_brake_cmd = speed_pid_controller.Control(v_err, 0.05);
     
     // 一简陋的横向控制器
-    steer_cmd = lateral_pid_controller.Control(lat_err, 0.05) + yaw_pid_controller.Control(yaw_err, 0.05);    
+    steer_cmd = lateral_pid_controller.Control(lat_err, 0.01) + yaw_pid_controller.Control(yaw_err, 0.01);    
     
     cout << "longitudinal control: " << throttle_or_brake_cmd << endl;
     cout << "lateral error :" << lat_err << endl;
@@ -223,7 +223,7 @@ int main(int argc, char** argv)
     } 
 
     control_cmd.steer = steer_cmd;
-    
+    control_cmd.steer = 0.0;
     // 发布控制指令
     control_pub.publish(control_cmd);
     ros::spinOnce();

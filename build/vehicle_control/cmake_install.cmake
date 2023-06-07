@@ -1,8 +1,8 @@
-# Install script for directory: /home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control
+# Install script for directory: /home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/lifanjie/Desktop/Project_1_PID_ROS1/install")
+  set(CMAKE_INSTALL_PREFIX "/home/lifanjie/ShenLanAcademy-PlanningAndControl/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lifanjie/Desktop/Project_1_PID_ROS1/build/vehicle_control/catkin_generated/installspace/vehicle_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/vehicle_control/catkin_generated/installspace/vehicle_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vehicle_control/cmake" TYPE FILE FILES
-    "/home/lifanjie/Desktop/Project_1_PID_ROS1/build/vehicle_control/catkin_generated/installspace/vehicle_controlConfig.cmake"
-    "/home/lifanjie/Desktop/Project_1_PID_ROS1/build/vehicle_control/catkin_generated/installspace/vehicle_controlConfig-version.cmake"
+    "/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/vehicle_control/catkin_generated/installspace/vehicle_controlConfig.cmake"
+    "/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/vehicle_control/catkin_generated/installspace/vehicle_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vehicle_control" TYPE FILE FILES "/home/lifanjie/Desktop/Project_1_PID_ROS1/src/vehicle_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vehicle_control" TYPE FILE FILES "/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/package.xml")
 endif()
 
