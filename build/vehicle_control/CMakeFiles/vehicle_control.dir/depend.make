@@ -12,6 +12,8 @@ vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /home/
 vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/include/reference_line.h
 vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/vehicle_control.cpp
 vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /opt/ros/melodic/include/carla_msgs/CarlaEgoVehicleControl.h
+vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /opt/ros/melodic/include/carla_msgs/CarlaEgoVehicleStatus.h
+vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /opt/ros/melodic/include/geometry_msgs/Accel.h
 vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
 vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /opt/ros/melodic/include/geometry_msgs/PointStamped.h
 vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h

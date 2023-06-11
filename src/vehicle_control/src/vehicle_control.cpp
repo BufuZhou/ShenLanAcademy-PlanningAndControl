@@ -2,6 +2,8 @@
 #include "pid_controller.h"
 #include <fstream>
 #include <algorithm>
+#include "carla_msgs/CarlaEgoVehicleStatus.h"
+
 
 using namespace std;
 // Param
@@ -17,8 +19,8 @@ bool cout_speed_ = true;
 
 int cnt = 0;
 // Controller
-shenlan::control::PIDController speed_pid_controller(0.5, 0.3, 0.1);      // 纵向 pid
-shenlan::control::PIDController lateral_pid_controller(0.01, 0.0, 0.0);   // 横向 pid
+shenlan::control::PIDController speed_pid_controller(0.8, 0.5, 0.1);      // 纵向 pid
+shenlan::control::PIDController lateral_pid_controller(0.1, 0.0, 0.0);   // 横向 pid
 shenlan::control::PIDController yaw_pid_controller(0.0, 0.0, 0.0);        // 横摆角 pid
 
 std::vector<TrajectoryPoint> trajectory_points_;
@@ -66,13 +68,13 @@ void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
   if (first_record_) 
   {
     vehicle_state_.start_point_x = msg->pose.pose.position.x;
-    vehicle_state_.start_point_x = msg->pose.pose.position.x;
+    vehicle_state_.start_point_y = msg->pose.pose.position.y;
     //vehicle_state_.start_heading = vehicle_state_.yaw;
     vehicle_state_.start_heading = -M_PI / 2;
     first_record_ = false;
   }
   vehicle_state_.x = msg->pose.pose.position.x;
-  vehicle_state_.y = msg->pose.pose.position.y;
+  vehicle_state_.y = -msg->pose.pose.position.y;
   vehicle_state_.vx = msg->twist.twist.linear.x;
   vehicle_state_.vy = msg->twist.twist.linear.y;
 
@@ -84,6 +86,16 @@ void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
   vehicle_state_.heading = vehicle_state_.yaw;    // pose.orientation是四元数
 }
 
+void get_vehicle_status(const carla_msgs::CarlaEgoVehicleStatusConstPtr& vehicle_status)
+{
+  ROS_INFO("----");
+  ROS_INFO("  CarlaEgoVehicleStatus.velocity: %f", vehicle_status->velocity);
+  ROS_INFO("  CarlaEgoVehicleStatus.orientation: %lf", vehicle_status->orientation.w);
+  ROS_INFO("  CarlaEgoVehicleStatus.orientation: %lf", vehicle_status->orientation.x);
+  ROS_INFO("  CarlaEgoVehicleStatus.orientation: %lf", vehicle_status->orientation.y);
+  ROS_INFO("  CarlaEgoVehicleStatus.orientation: %lf", vehicle_status->orientation.z);
+}
+
 int main(int argc, char** argv) 
 {
   ros::init(argc, argv, "control_pub");
@@ -92,7 +104,7 @@ int main(int argc, char** argv)
 
   // 订阅车辆的位置信息
   ros::Subscriber sub = nh.subscribe("/carla/ego_vehicle/odometry", 10, odomCallback);
-  
+  ros::Subscriber sub1 = nh.subscribe("/carla/ego_vehicle/vehicle_status", 1000, get_vehicle_status);
   // 通过话题 "/carla/ego_vehicle/vehicle_control_cmd" 发布控制指令
   // 控制指令的消息类型为 carla_msgs:CarlaEgoVehicleControl
   // 有关该消息的具体内容可参考官方文档： https://carla.readthedocs.io/projects/ros-bridge/en/latest/ros_msgs/
@@ -157,7 +169,7 @@ int main(int argc, char** argv)
   }
 
   // 简单规划下到终点时的速度
-  double v_temp = 0.0;
+  double v_temp = 10.0;
 
   for (size_t i = headings.size(); i > headings.size() - 5; i--)
   {
@@ -175,35 +187,35 @@ int main(int argc, char** argv)
   while(ros::ok()) {
     
     TrajectoryPoint target_point_;
-
+    
     target_point_ = QueryNearestPointByPosition(vehicle_state_.x, vehicle_state_.y);
+    target_point_.v = 15.0;
+    cout << "vehicle_state_.x: " << vehicle_state_.x << endl;
+    cout << "vehicle_state_.y: " << vehicle_state_.y << endl;
 
-    cout << "target_v: " << target_point_.v << endl;
-    // target_point_.v = 0.0;
+    cout << "target_v: " << target_point_.v * 3.6 << endl;
+    cout <<"target_y: "  << target_point_.y << endl;
+    
+
     double v_err = target_point_.v - vehicle_state_.v;               // 速度误差
     double yaw_err = vehicle_state_.heading - target_point_.heading; // 横摆角误差
     double lat_err = target_point_.y - vehicle_state_.y;             // 横向误差
 
-    // if (yaw_err > M_PI / 6) 
-    // {
-    //   yaw_err = M_PI / 6;
-    // }
-    // else if (yaw_err < -M_PI / 6)
-    // {
-    //   yaw_err = -M_PI / 6;
-    // }
+    if (yaw_err > M_PI / 6) 
+    {
+      yaw_err = M_PI / 6;
+    }
+    else if (yaw_err < -M_PI / 6)
+    {
+      yaw_err = -M_PI / 6;
+    }
     
     // 计算油门/制动踏板开度
     throttle_or_brake_cmd = speed_pid_controller.Control(v_err, 0.05);
     
     // 一简陋的横向控制器
-    steer_cmd = lateral_pid_controller.Control(lat_err, 0.01) + yaw_pid_controller.Control(yaw_err, 0.01);    
-    
-    cout << "longitudinal control: " << throttle_or_brake_cmd << endl;
-    cout << "lateral error :" << lat_err << endl;
-    cout << "yaw error: " << yaw_err << endl;
-    cout << "steer control: " << steer_cmd << endl;
-    cout << endl;
+    steer_cmd = lateral_pid_controller.Control(lat_err, 0.05) + yaw_pid_controller.Control(yaw_err, 0.05);    
+ 
 
     // 限制油门和制动的输出
     if (throttle_or_brake_cmd >= 0)
@@ -221,8 +233,15 @@ int main(int argc, char** argv)
     {
       control_cmd.throttle = 0.0;
     } 
-
+    
+    // steer_cmd = max(min(-0.1, steer_cmd), 0.1);
     control_cmd.steer = steer_cmd;
+       
+    cout << "longitudinal control: " << throttle_or_brake_cmd << endl;
+    cout << "lateral error :" << lat_err << endl;
+    cout << "yaw error: " << yaw_err << endl;
+    cout << "steer control: " << steer_cmd << endl;
+    cout << endl;
     control_cmd.steer = 0.0;
     // 发布控制指令
     control_pub.publish(control_cmd);

@@ -13,6 +13,8 @@ vehicle_control/CMakeFiles/vehicle_control.dir/src/vehicle_control.cpp.o
  /home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/include/reference_line.h
  /home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/vehicle_control.cpp
  /opt/ros/melodic/include/carla_msgs/CarlaEgoVehicleControl.h
+ /opt/ros/melodic/include/carla_msgs/CarlaEgoVehicleStatus.h
+ /opt/ros/melodic/include/geometry_msgs/Accel.h
  /opt/ros/melodic/include/geometry_msgs/Point.h
  /opt/ros/melodic/include/geometry_msgs/PointStamped.h
  /opt/ros/melodic/include/geometry_msgs/Pose.h
