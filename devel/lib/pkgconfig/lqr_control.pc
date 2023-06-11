@@ -1,0 +1,8 @@
+prefix=/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel
+
+Name: lqr_control
+Description: Description of lqr_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -lserial_communication
+Requires: geometry_msgs roscpp rospy sensor_msgs std_msgs tf carla_msgs nav_msgs

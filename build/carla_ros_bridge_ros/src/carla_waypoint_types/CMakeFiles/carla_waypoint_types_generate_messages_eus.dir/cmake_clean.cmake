@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_waypoint_types/manifest.l"
+  "CMakeFiles/carla_waypoint_types_generate_messages_eus"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_waypoint_types/msg/CarlaWaypoint.l"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_waypoint_types/srv/GetActorWaypoint.l"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_waypoint_types/srv/GetWaypoint.l"
-  "CMakeFiles/carla_waypoint_types_generate_messages_eus"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_waypoint_types/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

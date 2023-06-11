@@ -36,6 +36,14 @@ iostream
 math.h
 -
 
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/pid_controller.cpp
+pid_controller.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/pid_controller.h
+
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/reference_line.cpp
+reference_line.h
+/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/reference_line.h
+
 /home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/vehicle_control.cpp
 common.h
 /home/lifanjie/ShenLanAcademy-PlanningAndControl/src/vehicle_control/src/common.h

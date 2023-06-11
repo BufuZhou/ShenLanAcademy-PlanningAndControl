@@ -63,3 +63,38 @@ make: *** [cmTC_f4b6f/fast] Error 2
 
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/lifanjie/ShenLanAcademy-PlanningAndControl/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_afbf7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_afbf7.dir/build.make CMakeFiles/cmTC_afbf7.dir/build
+make[1]: Entering directory '/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_afbf7.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_afbf7.dir/CheckSymbolExists.c.o   -c /home/lifanjie/ShenLanAcademy-PlanningAndControl/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_afbf7
+/home/lifanjie/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_afbf7.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_afbf7.dir/CheckSymbolExists.c.o  -o cmTC_afbf7 
+CMakeFiles/cmTC_afbf7.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_afbf7.dir/build.make:86: recipe for target 'cmTC_afbf7' failed
+make[1]: *** [cmTC_afbf7] Error 1
+make[1]: Leaving directory '/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_afbf7/fast' failed
+make: *** [cmTC_afbf7/fast] Error 2
+
+File /home/lifanjie/ShenLanAcademy-PlanningAndControl/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

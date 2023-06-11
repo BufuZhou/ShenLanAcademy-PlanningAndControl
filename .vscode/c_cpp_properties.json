@@ -4,7 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/src/vehicle_control/include"
+                "${workspaceFolder}/src/vehicle_control/include",
+                "${workspaceFolder}/src/lqr_control/include",
+                "${workspaceFolder}/src/ros_viz_tools/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

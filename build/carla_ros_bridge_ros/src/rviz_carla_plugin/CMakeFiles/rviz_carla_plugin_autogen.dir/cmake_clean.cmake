@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
+  "rviz_carla_plugin_autogen"
+  "CMakeFiles/rviz_carla_plugin_autogen.dir/AutogenOldSettings.cmake"
   "CMakeFiles/rviz_carla_plugin_autogen"
-  "rviz_carla_plugin_autogen/mocs_compilation.cpp"
 )
 
 # Per-language clean rules from dependency scanning.

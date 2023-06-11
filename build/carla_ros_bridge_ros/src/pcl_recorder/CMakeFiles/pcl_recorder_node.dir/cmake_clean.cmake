@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/pcl_recorder/pcl_recorder_node"
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/pcl_recorder/pcl_recorder_node.pdb"
   "CMakeFiles/pcl_recorder_node.dir/src/PclRecorder.cpp.o"
   "CMakeFiles/pcl_recorder_node.dir/src/main.cpp.o"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/pcl_recorder/pcl_recorder_node.pdb"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/pcl_recorder/pcl_recorder_node"
 )
 
 # Per-language clean rules from dependency scanning.

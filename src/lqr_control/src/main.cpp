@@ -12,6 +12,7 @@
 int main(int argc, char** argv) {
   ros::init(argc, argv, "lqr_control");
   LQRControllerNode control_node;
+  // 通过初始化指令完成整个控制流程
   if (!control_node.init()) {
     std::cout << "fail to init lqr_control_node" << std::endl;
     return -1;

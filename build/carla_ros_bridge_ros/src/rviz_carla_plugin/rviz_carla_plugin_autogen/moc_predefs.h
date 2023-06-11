@@ -218,7 +218,6 @@
 #define __cpp_digit_separators 201309
 #define __ELF__ 1
 #define __GCC_ASM_FLAG_OUTPUTS__ 1
-#define rviz_carla_plugin_EXPORTS 1
 #define __FLT_RADIX__ 2
 #define __INT_LEAST16_TYPE__ short int
 #define __LDBL_EPSILON__ 1.08420217248550443400745280086994171e-19L

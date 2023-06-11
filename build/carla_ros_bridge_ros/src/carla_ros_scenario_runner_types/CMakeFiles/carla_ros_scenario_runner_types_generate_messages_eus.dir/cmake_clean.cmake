@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_ros_scenario_runner_types/manifest.l"
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_ros_scenario_runner_types/msg/CarlaScenario.l"
+  "CMakeFiles/carla_ros_scenario_runner_types_generate_messages_eus"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_ros_scenario_runner_types/msg/CarlaScenarioList.l"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_ros_scenario_runner_types/msg/CarlaScenarioRunnerStatus.l"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_ros_scenario_runner_types/msg/CarlaScenario.l"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_ros_scenario_runner_types/srv/ExecuteScenario.l"
-  "CMakeFiles/carla_ros_scenario_runner_types_generate_messages_eus"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/roseus/ros/carla_ros_scenario_runner_types/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_msgs/EgoVehicleControlCurrent.h"
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_msgs/EgoVehicleControlInfo.h"
+  "CMakeFiles/carla_ackermann_msgs_generate_messages_cpp"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_msgs/EgoVehicleControlMaxima.h"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_msgs/EgoVehicleControlStatus.h"
   "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_msgs/EgoVehicleControlTarget.h"
-  "CMakeFiles/carla_ackermann_msgs_generate_messages_cpp"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_msgs/EgoVehicleControlCurrent.h"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_msgs/EgoVehicleControlInfo.h"
 )
 
 # Per-language clean rules from dependency scanning.

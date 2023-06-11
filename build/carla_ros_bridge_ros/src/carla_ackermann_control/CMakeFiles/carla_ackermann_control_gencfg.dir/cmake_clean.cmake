@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_control/EgoVehicleControlParameterConfig.h"
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/python2.7/dist-packages/carla_ackermann_control/cfg/EgoVehicleControlParameterConfig.py"
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/carla_ackermann_control/docs/EgoVehicleControlParameterConfig-usage.dox"
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/carla_ackermann_control/docs/EgoVehicleControlParameterConfig.dox"
-  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/carla_ackermann_control/docs/EgoVehicleControlParameterConfig.wikidoc"
   "CMakeFiles/carla_ackermann_control_gencfg"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/include/carla_ackermann_control/EgoVehicleControlParameterConfig.h"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/carla_ackermann_control/docs/EgoVehicleControlParameterConfig.dox"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/carla_ackermann_control/docs/EgoVehicleControlParameterConfig-usage.dox"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/python2.7/dist-packages/carla_ackermann_control/cfg/EgoVehicleControlParameterConfig.py"
+  "/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/share/carla_ackermann_control/docs/EgoVehicleControlParameterConfig.wikidoc"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -30,6 +30,7 @@ bool LQRControllerNode::init() {
   pnh_.getParam("vis_frequency", vis_frequency);  //读取路网显示的频率
   pnh_.getParam("frame_id", frame_id);            //读取全局坐标系名
 
+  cout << "target_speed: " << target_speed << endl;
   //加载路网文件
   if (!loadRoadmap(roadmap_path, target_speed)) return false;
 
@@ -37,25 +38,27 @@ bool LQRControllerNode::init() {
       new PIDController(speed_P, speed_I, speed_D));
 
   lqrController_ = std::shared_ptr<LqrController>(new LqrController());
+  // 加载LQR控制器配置
   lqrController_->LoadControlConf();
+  // LQR控制器初始化
   lqrController_->Init();
   roadmapMarkerPtr_ =
       std::shared_ptr<RosVizTools>(new RosVizTools(nh_, path_vis_topic));
 
+  
   VehiclePoseSub_ = nh_.subscribe(vehicle_odom_topic, 10,
                                   &LQRControllerNode::odomCallback, this);
-  
-  // LGSVL Publisher
-  // controlPub_ =
-  //     nh_.advertise<lgsvl_msgs::VehicleControlData>(vehicle_cmd_topic, 1000);
-
-  // Carla Publisher
+  cout << "vehicleState_.x: " << vehicleState_.x << endl;
+  cout << "vehicleState_.y: " << vehicleState_.y << endl;
+  cout << "vehicleState_.heading: " << vehicleState_.heading << endl;
+  cout << "vehicleState_.velocity: " << vehicleState_.velocity << endl;
   controlPub_ =
       nh_.advertise<carla_msgs::CarlaEgoVehicleControl>(vehicle_cmd_topic, 1000);
 
   visTimer_ = nh_.createTimer(ros::Duration(1 / vis_frequency),
                               &LQRControllerNode::visTimerLoop,
                               this);  //注册可视化线程
+  // 调用LQR控制器计算所需方向盘转角
   controlTimer_ = nh_.createTimer(ros::Duration(1 / controlFrequency_),
                                   &LQRControllerNode::controlTimerLoop,
                                   this);  //这侧控制线程
@@ -171,7 +174,6 @@ void LQRControllerNode::visTimerLoop(const ros::TimerEvent&) {
 void LQRControllerNode::controlTimerLoop(const ros::TimerEvent&) {
   ControlCmd cmd;
   if (!firstRecord_) {  //有定位数据开始控制
-
     //小于容忍距离，车辆速度设置为0
     if (pointDistance(goalPoint_, vehicleState_.x, vehicleState_.y) <
         goalTolerance_) {
@@ -207,6 +209,7 @@ void LQRControllerNode::controlTimerLoop(const ros::TimerEvent&) {
     }
 
     // Lateral Control
+    cout << "steer_target: " << cmd.steer_target << endl;
     control_cmd.steer = cmd.steer_target;
 
     controlPub_.publish(control_cmd);

@@ -3,7 +3,7 @@
 #include <string>
 
 #include <carla_msgs/CarlaEgoVehicleControl.h>
-#include <lgsvl_msgs/VehicleControlData.h>
+// #include <lgsvl_msgs/VehicleControlData.h>
 #include <nav_msgs/Odometry.h>
 #include <std_msgs/Header.h>
 

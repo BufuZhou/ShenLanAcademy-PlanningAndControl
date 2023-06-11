@@ -4,7 +4,7 @@
     <param name="vehicle_odom_topic" value="/carla/ego_vehicle/odometry" />
     <param name="vehicle_cmd_topic" value="/carla/ego_vehicle/vehicle_control_cmd" />
     <param name="roadmap_path" value="$(find lqr_control)/data/town02_reference_line.txt" />
-    <param name="target_speed" value="4" />
+    <param name="target_speed" value="6" />
     <param name="goal_tolerance" value="0.5" />
     <param name="control_frequency" value="100" />
     <param name="vis_frequency" value="0.5" />
