@@ -14,14 +14,14 @@ bool LQRControllerNode::init() {
   std::string roadmap_path;
   std::string path_vis_topic;
   std::string frame_id;
-  double speed_P, speed_I, speed_D, target_speed, vis_frequency;
+  double speed_P, speed_I, speed_D,  vis_frequency;
   pnh_.getParam("vehicle_odom_topic",
                 vehicle_odom_topic);  //读取车辆定位的topic名
   pnh_.getParam("vehicle_cmd_topic",
                 vehicle_cmd_topic);             //读取车辆控制的topic名
   pnh_.getParam("roadmap_path", roadmap_path);  //读取路网文件名
   pnh_.getParam("path_vis_topic", path_vis_topic);  //读取可视化路网名
-  pnh_.getParam("target_speed", target_speed);      //读取目标速度
+  pnh_.getParam("target_speed", targetSpeed_);      //读取目标速度
   pnh_.getParam("goal_tolerance", goalTolerance_);  //读取目标速度
   pnh_.getParam("speed_P", speed_P);                //读取PID参数
   pnh_.getParam("speed_I", speed_I);
@@ -30,9 +30,9 @@ bool LQRControllerNode::init() {
   pnh_.getParam("vis_frequency", vis_frequency);  //读取路网显示的频率
   pnh_.getParam("frame_id", frame_id);            //读取全局坐标系名
 
-  cout << "target_speed: " << target_speed << endl;
+  cout << "target_speed: " << targetSpeed_ << endl;
   //加载路网文件
-  if (!loadRoadmap(roadmap_path, target_speed)) return false;
+  if (!loadRoadmap(roadmap_path, targetSpeed_)) return false;
 
   speedPidControllerPtr_ = std::shared_ptr<PIDController>(
       new PIDController(speed_P, speed_I, speed_D));

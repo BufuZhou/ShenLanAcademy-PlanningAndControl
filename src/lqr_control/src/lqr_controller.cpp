@@ -161,10 +161,11 @@ bool LqrController::ComputeControlCommand(
   double steer_angle = steer_angle_feedback + steer_angle_feedforward;
   
   // Set the steer commands
-  if (steer_angle >= atan2_to_PI(20.0)) {
-    steer_angle = atan2_to_PI(20.0);
-  } else if (steer_angle <= -atan2_to_PI(20.0)) {
-    steer_angle = -atan2_to_PI(20.0);
+  double max_steer_angle = 470;
+  if (steer_angle >= atan2_to_PI(max_steer_angle)) {
+    steer_angle = atan2_to_PI(max_steer_angle);
+  } else if (steer_angle <= -atan2_to_PI(max_steer_angle)) {
+    steer_angle = -atan2_to_PI(max_steer_angle);
   }
   cmd.steer_target = steer_angle;
 
