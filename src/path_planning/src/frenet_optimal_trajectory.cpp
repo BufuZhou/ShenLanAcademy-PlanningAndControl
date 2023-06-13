@@ -64,7 +64,7 @@ Vec_Path FrenetOptimalTrajectory::calc_frenet_paths(float c_speed, float c_d,
       FrenetPath fp;
       QuinticPolynomial lat_qp(c_d, c_d_d, c_d_dd, di, 0.0, 0.0, Ti);
 
-      // 记录离散时间下对应的轨迹点
+      // 记录离散时间下对应的轨迹点1
       for (float t = 0; t < Ti; t += DT) {
         fp.t.push_back(t);
         fp.d.push_back(lat_qp.calc_point(t));
