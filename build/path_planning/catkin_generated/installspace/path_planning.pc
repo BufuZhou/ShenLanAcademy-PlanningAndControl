@@ -1,0 +1,8 @@
+prefix=/home/lifanjie/ShenLanAcademy-PlanningAndControl/install
+
+Name: path_planning
+Description: Description of path_planning
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -lserial_communication
+Requires: geometry_msgs roscpp rospy sensor_msgs std_msgs tf carla_msgs nav_msgs

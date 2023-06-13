@@ -152,6 +152,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/carla_ros_bridge_ros/src/pcl_recorder/cmake_install.cmake")
   include("/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/carla_ros_bridge_ros/src/rviz_carla_plugin/cmake_install.cmake")
   include("/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/vehicle_control/cmake_install.cmake")
+  include("/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/path_planning/cmake_install.cmake")
 
 endif()
 

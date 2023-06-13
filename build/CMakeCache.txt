@@ -336,6 +336,12 @@ actionlib_DIR:PATH=/opt/ros/melodic/share/actionlib/cmake
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/melodic/share/actionlib_msgs/cmake
 
+//The directory containing a CMake configuration file for angles.
+angles_DIR:PATH=/opt/ros/melodic/share/angles/cmake
+
+//The directory containing a CMake configuration file for base_local_planner.
+base_local_planner_DIR:PATH=/opt/ros/melodic/share/base_local_planner/cmake
+
 //The directory containing a CMake configuration file for bond.
 bond_DIR:PATH=/opt/ros/melodic/share/bond/cmake
 
@@ -438,6 +444,9 @@ catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 //The directory containing a CMake configuration file for class_loader.
 class_loader_DIR:PATH=/opt/ros/melodic/share/class_loader/cmake
 
+//The directory containing a CMake configuration file for costmap_2d.
+costmap_2d_DIR:PATH=/opt/ros/melodic/share/costmap_2d/cmake
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
 
@@ -530,7 +539,7 @@ interactive_markers_DIR:PATH=/opt/ros/melodic/share/interactive_markers/cmake
 laser_geometry_DIR:PATH=/opt/ros/melodic/share/laser_geometry/cmake
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/melodic/lib/libtf2.so
+lib:FILEPATH=/opt/ros/melodic/lib/libvoxel_grid.so
 
 //Value Computed by CMake
 lqr_control_BINARY_DIR:STATIC=/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/lqr_control
@@ -553,6 +562,9 @@ message_generation_DIR:PATH=/opt/ros/melodic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
 
+//The directory containing a CMake configuration file for nav_core.
+nav_core_DIR:PATH=/opt/ros/melodic/share/nav_core/cmake
+
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/melodic/share/nav_msgs/cmake
 
@@ -561,6 +573,15 @@ nodelet_DIR:PATH=/opt/ros/melodic/share/nodelet/cmake
 
 //The directory containing a CMake configuration file for nodelet_topic_tools.
 nodelet_topic_tools_DIR:PATH=/opt/ros/melodic/share/nodelet_topic_tools/cmake
+
+//Value Computed by CMake
+path_planning_BINARY_DIR:STATIC=/home/lifanjie/ShenLanAcademy-PlanningAndControl/build/path_planning
+
+//Dependencies for the target
+path_planning_LIB_DEPENDS:STATIC=general;ros_viz_tools;general;/opt/ros/melodic/lib/libbase_local_planner.so;general;/opt/ros/melodic/lib/libtrajectory_planner_ros.so;general;/opt/ros/melodic/lib/libcostmap_2d.so;general;/opt/ros/melodic/lib/liblayers.so;general;/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/melodic/lib/liblaser_geometry.so;general;/opt/ros/melodic/lib/libtf.so;general;/opt/ros/melodic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libtf2_ros.so;general;/opt/ros/melodic/lib/libactionlib.so;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libtf2.so;general;/opt/ros/melodic/lib/libvoxel_grid.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;VTSMapInterfaceCPP;
+
+//Value Computed by CMake
+path_planning_SOURCE_DIR:STATIC=/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/path_planning
 
 //The directory containing a CMake configuration file for pcl_conversions.
 pcl_conversions_DIR:PATH=/opt/ros/melodic/share/pcl_conversions/cmake
@@ -715,6 +736,9 @@ vehicle_control_SOURCE_DIR:STATIC=/home/lifanjie/ShenLanAcademy-PlanningAndContr
 //The directory containing a CMake configuration file for visualization_msgs.
 visualization_msgs_DIR:PATH=/opt/ros/melodic/share/visualization_msgs/cmake
 
+//The directory containing a CMake configuration file for voxel_grid.
+voxel_grid_DIR:PATH=/opt/ros/melodic/share/voxel_grid/cmake
+
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake
 
@@ -836,7 +860,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=25
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=26
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

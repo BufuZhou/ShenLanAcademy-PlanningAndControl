@@ -9,6 +9,7 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib:$LD_LIBRARY_PATH"
+export PATH='/opt/ros/melodic/bin:/home/lifanjie/anaconda3/envs/py27/bin:/home/lifanjie/home/lifanjie/.local/lib/python2.7/site-packages:/home/lifanjie/home/anaconda3/bin:/home/lifanjie/.local/bin:/home/lifanjie/home/lifanjie/.local/lib/python2.7/site-packages:/home/lifanjie/home/anaconda3/bin:/home/lifanjie/anaconda3/condabin:/home/lifanjie/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
 export PKG_CONFIG_PATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/lifanjie/ShenLanAcademy-PlanningAndControl/build'
 export PYTHONPATH="/home/lifanjie/ShenLanAcademy-PlanningAndControl/devel/lib/python2.7/dist-packages:$PYTHONPATH"
