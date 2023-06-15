@@ -97,15 +97,11 @@ class Spline {
   Eigen::MatrixXf calc_A() {
     Eigen::MatrixXf A = Eigen::MatrixXf::Zero(nx, nx);
     A(0, 0) = 1;
-    for (int i = 0; i < nx - 1; i++) {
-      if (i != nx - 2) {
-        A(i + 1, i + 1) = 2 * (h[i] + h[i + 1]);
-      }
-      A(i + 1, i) = h[i];
-      A(i, i + 1) = h[i];
+    for (int i = 1; i < nx - 1; i++) {
+      A(i, i-1) = h[i];
+      A(i, i) = 2 * (h[i] + h[i + 1]);
+      A(i, i + 1) = h[i+1];
     }
-    A(0, 1) = 0.0;
-    A(nx - 1, nx - 2) = 0.0;
     A(nx - 1, nx - 1) = 1.0;
     return A;
   };

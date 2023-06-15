@@ -18,15 +18,15 @@
 #include "ros/ros.h"
 
 namespace shenlan {
-#define MAX_SPEED 50.0 / 3.6     // maximum speed [m/s]
+#define MAX_SPEED 30.0 / 3.6     // maximum speed [m/s]
 #define MAX_ACCEL 6.0            // maximum acceleration [m/ss]
 #define MAX_CURVATURE 100.0        // maximum curvature [1/m]
-#define MAX_ROAD_WIDTH 7.0       // maximum road width [m]
+#define MAX_ROAD_WIDTH 1.0       // maximum road width [m]
 #define D_ROAD_W 1.0             // road width sampling length [m]
 #define DT 0.2                   // time tick [s]
-#define MAXT 3.0                 // max prediction time [m]
+#define MAXT 5.0                 // max prediction time [m]
 #define MINT 2.0                 // min prediction time [m]
-#define TARGET_SPEED 17.0 / 3.6  // target speed [m/s]
+#define TARGET_SPEED 18.0 / 3.6  // target speed [m/s]
 #define D_T_S 5.0 / 3.6          // target speed sampling length [m/s]
 #define N_S_SAMPLE 1             // sampling number of target speed
 #define ROBOT_RADIUS 2.5         // robot radius [m]

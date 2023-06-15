@@ -64,6 +64,7 @@ bool PathPlanningNode::init() {
   visualization_ = VisualizationPtr(new Visualization(nh_));
 
   // 加载参考线
+  use_reference_line_ = false;
   if (use_reference_line_) {
     LoadReferenceLine();
   }
@@ -76,7 +77,7 @@ bool PathPlanningNode::init() {
 
   //  Update Obstacle
   // 添加虚拟障碍物
-  UpdateStaticObstacle();
+  //UpdateStaticObstacle();
 
   roadmapMarkerPtr_ =
       std::shared_ptr<RosVizTools>(new RosVizTools(nh_, path_vis_topic));
@@ -87,10 +88,8 @@ bool PathPlanningNode::init() {
   VehiclePoseSub_ = nh_.subscribe(vehicle_odom_topic, 10,
                                   &PathPlanningNode::odomCallback, this);
   
+  // 获取车辆加速度
   ImuSub_ = nh_.subscribe(imu_topic, 10, &PathPlanningNode::IMUCallback, this);
-
-  // controlPub_ =
-  //     nh_.advertise<lgsvl_msgs::VehicleControlData>(vehicle_cmd_topic, 1000);
 
   controlPub_ = nh_.advertise<carla_msgs::CarlaEgoVehicleControl>(vehicle_cmd_topic, 1000);
 
@@ -296,14 +295,14 @@ void PathPlanningNode::plannerTimerLoop(const ros::TimerEvent &) {
     const double ego_speed = vehicleState_.velocity;
 
     s0_ = ego_s;
-    if (std::abs(ego_speed) > 1e-3) {
+    if (std::abs(ego_speed) > 9e-3) {
       c_speed_ = ego_speed;
     }
     c_d_ = ego_l;
 
     // Idea:
     // 判断是否是终点,这里之后需要优化一下，加一个精准停车功能，然后缩小误差范围，发送Stop命令
-    if (std::abs(s0_ - end_s_) < 2.0) {
+    if (std::abs(s0_ - end_s_) < 5.0) {
       // break;
       isReachGoal_ = true;
       ROS_INFO("Goal Reached!");

@@ -158,8 +158,8 @@ class PathPlanningNode {
 
   Spline2D *csp_obj_;
 
-  float c_speed_ = 10.0 / 3.6;
-  float c_d_ = 2.0;
+  float c_speed_ = 0.0 / 3.6;
+  float c_d_ = 0.0;
   float c_d_d_ = 0.0;
   float c_d_dd_ = 0.0;
   float s0_ = 0.0;

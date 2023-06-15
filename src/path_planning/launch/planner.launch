@@ -5,7 +5,7 @@
     <param name="vehicle_cmd_topic" value="/carla/ego_vehicle/vehicle_control_cmd" />
     <param name="roadmap_path" value="$(find path_planning)/data/reference_line_Town01.txt" />
     <param name="map_path" value="$(find path_planning)/maps/Town01.xodr" />
-    <param name="target_speed" value="3" />
+    <param name="target_speed" value="5" />
     <param name="goal_tolerance" value="0.5" />
     <param name="control_frequency" value="100" />
     <param name="vis_frequency" value="0.5" />
@@ -16,7 +16,7 @@
     <param name="speed_D" value="0" />
     <param name="frame_id" value="map" />
     <!-- c_speed = 3.6/3.6 -->
-    <param name="c_speed" value="1.0" />  
+    <param name="c_speed" value="0.0" />  
     <param name="c_d" value="0.0" />  
     <param name="c_d_d" value="0.0" />  
     <param name="c_d_dd" value="0.0" />  
