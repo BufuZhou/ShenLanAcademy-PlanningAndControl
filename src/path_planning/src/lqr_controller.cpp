@@ -102,10 +102,10 @@ b = [0.0, c_f / m, 0.0, l_f * c_f / i_z]^T
   matrix_q_ = Matrix::Zero(matrix_size, matrix_size);
 
   // int q_param_size = 4;
-  matrix_q_(0, 0) = 1;  // lateral_error
-  matrix_q_(1, 1) = 1;  // lateral_error_rate
-  matrix_q_(2, 2) = 1;  // heading_error
-  matrix_q_(3, 3) = 1;  // heading__error_rate
+  matrix_q_(0, 0) = 2.5;  // lateral_error
+  matrix_q_(1, 1) = 1.5;  // lateral_error_rate
+  matrix_q_(2, 2) = 10;  // heading_error
+  matrix_q_(3, 3) = 1.5;  // heading__error_rate
 
   matrix_q_updated_ = matrix_q_;
 
@@ -193,7 +193,7 @@ bool LqrController::ComputeControlCommand(
   double steer_angle = steer_angle_feedback + steer_angle_feedforward;
 
   // Set the steer commands
-  cmd.steer_target = steer_angle;
+  cmd.steer_target = steer_angle ;
 
   return true;
 }

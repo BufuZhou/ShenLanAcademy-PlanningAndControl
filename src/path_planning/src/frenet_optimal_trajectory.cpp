@@ -21,19 +21,20 @@ namespace shenlan {
 #define MAX_SPEED 30.0 / 3.6     // maximum speed [m/s]
 #define MAX_ACCEL 6.0            // maximum acceleration [m/ss]
 #define MAX_CURVATURE 100.0        // maximum curvature [1/m]
-#define MAX_ROAD_WIDTH 1.0       // maximum road width [m]
+#define MAX_ROAD_WIDTH 0.5       // maximum road width [m]
 #define D_ROAD_W 1.0             // road width sampling length [m]
 #define DT 0.2                   // time tick [s]
-#define MAXT 5.0                 // max prediction time [m]
-#define MINT 2.0                 // min prediction time [m]
+#define MAXT 15.0                 // max prediction time [m]
+#define MINT 14.0                 // min prediction time [m]
 #define TARGET_SPEED 18.0 / 3.6  // target speed [m/s]
 #define D_T_S 5.0 / 3.6          // target speed sampling length [m/s]
 #define N_S_SAMPLE 1             // sampling number of target speed
-#define ROBOT_RADIUS 2.5         // robot radius [m]
+#define ROBOT_RADIUS 15         // robot radius [m]
 
-#define KJ 1.5
+#define KJ 0.1
 #define KT 0.1
-#define KD 1.4
+#define KD 1.0
+#define KV 1.0
 #define KLAT 1.0
 #define KLON 1.0
 
@@ -106,10 +107,10 @@ Vec_Path FrenetOptimalTrajectory::calc_frenet_paths(float c_speed, float c_d,
         float Js = sum_of_power(fp_bot.s_ddd);  // square of jerk
         // 计算每条备选轨迹的代价，参考的是论文 “Optimal trajectory generation for dynamic street scenarios in a Frenét Frame“ 里面的巡航控制的代价函数计算方式
         // square of diff from target speed
-        float ds = (TARGET_SPEED - fp_bot.s_d.back());
+        float dv = (TARGET_SPEED - fp_bot.s_d.back());
 
         fp_bot.cd = KJ * Jp + KT * Ti + KD * std::pow(fp_bot.d.back(), 2);
-        fp_bot.cv = KJ * Js + KT * Ti + KD * ds;
+        fp_bot.cv = KJ * Js + KT * Ti + KV * dv;
         fp_bot.cf = KLAT * fp_bot.cd + KLON * fp_bot.cv;
 
         // 将轨迹添加至候选轨迹中

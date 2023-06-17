@@ -389,7 +389,7 @@ void PathPlanningNode::controlTimerLoop(const ros::TimerEvent &) {
     }
 
     // Lateral Control
-    control_cmd.steer = cmd.steer_target;
+    control_cmd.steer = cmd.steer_target/ 1.22173035145;
 
     controlPub_.publish(control_cmd);
   }
