@@ -1,2 +1,0 @@
-set(carla_waypoint_types_MESSAGE_FILES "/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/carla_ros_bridge_ros/src/carla_waypoint_types/msg/CarlaWaypoint.msg")
-set(carla_waypoint_types_SERVICE_FILES "/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/carla_ros_bridge_ros/src/carla_waypoint_types/srv/GetWaypoint.srv;/home/lifanjie/ShenLanAcademy-PlanningAndControl/src/carla_ros_bridge_ros/src/carla_waypoint_types/srv/GetActorWaypoint.srv")
