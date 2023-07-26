@@ -6,10 +6,21 @@ ubuntu18.04
 wget http://fishros.com/install -O fishros && . fishros
 
 # carla
+https://carla.readthedocs.io/en/latest/start_quickstart/
+https://github.com/carla-simulator/carla/releases/tag/0.9.13
+
+CARLA_0.9.13.tar.gz
+AdditionalMaps_0.9.13.tar.gz
+
 carla 0.9.13
 
 # carla-ros-bridge
+https://carla.readthedocs.io/projects/ros-bridge/en/latest/
+
 carla-ros-bridge 9.10.1
+
+sudo apt-get update # Update the Debian package index
+sudo apt-get install carla-ros-bridge # Install the latest ROS bridge version, or update the current installation
 
 # step1
 cd ~/CARLA_0.9.13
