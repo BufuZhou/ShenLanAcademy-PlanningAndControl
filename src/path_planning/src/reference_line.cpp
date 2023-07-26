@@ -90,7 +90,18 @@ bool ReferenceLine::ComputePathProfile(std::vector<double>* headings,
   // to s for kappa calculation
   // 曲率的定义就是曲线的弯曲程度，就是某段弧长切线夹角的变化率，数据定义如下：
   //  kappa = dalpha/ds, kappa是曲率，dalpha是切线与x轴的夹角（航向角），ds是弧长
-  
+  // 一般曲率的计算公式：
+  // kappa = y''/(1 + y'^2)^(3/2)
+  // 参数化的曲率计算公式：
+  // kappa = (x'(t)y''(t) - x''(t)y'(t))/(x'(t)x'(t) + y'(t)y'(t))^(3/2)
+  // 参考资料1：https://www.cnblogs.com/fujj/p/9704589.html
+  // 参考资料2：https://blog.csdn.net/buaazyp/article/details/82622972
+  // 参考资料3：https://zhuanlan.zhihu.com/p/427833623
+  // 
+  // 这里计算曲率采用的是参数化的曲率公式
+  // 另外，令x = x(s), y = y(s)来进行计算一阶导数和二阶导数
+
+  // 一阶导数dx/ds和dy/ds，都是利用中心差分的方法，具体可以参考前面航向角的计算
   for (std::size_t i = 0; i < points_size; ++i) {
     double xds = 0.0;
     double yds = 0.0;
@@ -116,6 +127,7 @@ bool ReferenceLine::ComputePathProfile(std::vector<double>* headings,
 
   // Get finite difference approximated second derivative of y and x
   // respective to s for kappa calculation
+  // 二阶导数d^2x/ds^2和d^2y/ds^2，都是利用中心差分的方法，具体可以参考前面航向角的计算
   for (std::size_t i = 0; i < points_size; ++i) {
     double xdds = 0.0;
     double ydds = 0.0;
@@ -145,6 +157,7 @@ bool ReferenceLine::ComputePathProfile(std::vector<double>* headings,
     y_over_s_second_derivatives.push_back(ydds);
   }
 
+  // 计算曲率，利用参数化的曲率计算公式
   for (std::size_t i = 0; i < points_size; ++i) {
     double xds = x_over_s_first_derivatives[i];
     double yds = y_over_s_first_derivatives[i];
@@ -157,6 +170,7 @@ bool ReferenceLine::ComputePathProfile(std::vector<double>* headings,
   }
 
   // Dkappa calculation
+  // 曲率变化率，直接利用中心差分的计算方法，参考前面航向角中心差分的处理方法。
   for (std::size_t i = 0; i < points_size; ++i) {
     double dkappa = 0.0;
     if (i == 0) {
