@@ -9,11 +9,13 @@
 namespace shenlan {
 namespace control {
 
+// 构造函数，将路径点存储到私有成员xy_points_中
 ReferenceLine::ReferenceLine(
     const std::vector<std::pair<double, double>>& xy_points) {
   xy_points_ = xy_points;
 }
 
+// 根据路径点（x,y）计算得到轨迹
 bool ReferenceLine::ComputePathProfile(std::vector<double>* headings,
                                        std::vector<double>* accumulated_s,
                                        std::vector<double>* kappas,
@@ -32,8 +34,12 @@ bool ReferenceLine::ComputePathProfile(std::vector<double>* headings,
   std::vector<double> y_over_s_second_derivatives;
   std::vector<double> x_over_s_second_derivatives;
 
-  // Get finite difference approximated dx and dy for heading and kappa
-  // calculation
+  // Get finite difference approximated dx and dy for heading and kappa calculation
+  // 航向角是曲线的切线与x轴的夹角，所以航向角的正切值等于曲线的一阶导数。
+  // 这里利用中心差分的方法计算曲线的一阶导数
+  // 计算某个点的中心差分需要三个点，该点前面一个点，该点，该点后面一个点，公式如下：
+  // y_n' = (y_n+1 - y_n-1) / (x_n+1 - x_n-1)
+  // 所以起点和终点不满足条件，需要做特殊处理，起点的导数是向后差分，终点的导数是向前差分
   std::size_t points_size = xy_points_.size();
   for (std::size_t i = 0; i < points_size; ++i) {
     double x_delta = 0.0;
@@ -53,11 +59,16 @@ bool ReferenceLine::ComputePathProfile(std::vector<double>* headings,
   }
 
   // Heading calculation
+  // 计算出一阶导数，然后反正切，计算出航向角
   for (std::size_t i = 0; i < points_size; ++i) {
     headings->push_back(std::atan2(dys[i], dxs[i]));
   }
 
   // Get linear interpolated s for dkappa calculation
+  // 计算距离起点的距离s
+  // 特定点的距离s表示的是从起点到该点的累积弧长，计算方法如下
+  // （1）计算出相邻点的距离，end_segment_s = sqrt((y_n - y_n-1)^2 + (x_n - x_n-1)^2)
+  // （2）分别对ds进行累加，依次得到特定点的距离s
   double distance = 0.0;
   accumulated_s->push_back(distance);
   double fx = xy_points_[0].first;
@@ -77,6 +88,9 @@ bool ReferenceLine::ComputePathProfile(std::vector<double>* headings,
 
   // Get finite difference approximated first derivative of y and x respective
   // to s for kappa calculation
+  // 曲率的定义就是曲线的弯曲程度，就是某段弧长切线夹角的变化率，数据定义如下：
+  //  kappa = dalpha/ds, kappa是曲率，dalpha是切线与x轴的夹角（航向角），ds是弧长
+  
   for (std::size_t i = 0; i < points_size; ++i) {
     double xds = 0.0;
     double yds = 0.0;

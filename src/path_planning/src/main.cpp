@@ -13,6 +13,7 @@ int main(int argc, char** argv) {
   ros::init(argc, argv, "path_planning");
   PathPlanningNode planning_node;
   ROS_INFO("Start Demo!");
+  // planning的主函数是init，并非是初始化函数
   if (!planning_node.init()) {
     std::cout << "fail to init planning node" << std::endl;
     return -1;

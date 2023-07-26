@@ -24,6 +24,8 @@ bool PathPlanningNode::init() {
   std::string imu_topic;
   std::string local_traj_topic = "local_traj";
   double speed_P, speed_I, speed_D, target_speed, vis_frequency;
+
+  // 读取launch文件中的配置参数
   pnh_.getParam("vehicle_odom_topic",
                 vehicle_odom_topic);  //读取车辆定位的topic名
   pnh_.getParam("vehicle_cmd_topic",
@@ -157,6 +159,8 @@ void PathPlanningNode::IMUCallback(const sensor_msgs::Imu::ConstPtr &msg) {
            msg->linear_acceleration.y * msg->linear_acceleration.y);  // 加速度
 };
 
+
+// 加载路网文件
 bool PathPlanningNode::loadRoadmap(const std::string &roadmap_path,
                                    const double target_speed) {
   // 读取参考线路径
@@ -167,6 +171,7 @@ bool PathPlanningNode::loadRoadmap(const std::string &roadmap_path,
   }
   std::vector<std::pair<double, double>> xy_points;
   std::string s, x, y;
+  // 路径点是（x，y）坐标的形式给出，具体参考/data/reference_line_Town01.txt
   while (getline(infile, s)) {
     std::stringstream word(s);
     word >> x;
@@ -187,6 +192,7 @@ bool PathPlanningNode::loadRoadmap(const std::string &roadmap_path,
 
   ROS_INFO_STREAM("traj size= " << headings.size());
 
+  // 利用路网生成的轨迹点作为参考轨迹
   for (size_t i = 0; i < headings.size(); i++) {
     TrajectoryPoint trajectory_pt;
     trajectory_pt.x = xy_points[i].first;
